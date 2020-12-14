@@ -1,6 +1,9 @@
 html, body
     background-color: $background
 
+html
+    scroll-behavior: smooth
+
 html.modal-open
     overflow: hidden
 
@@ -35,10 +38,10 @@ a
         color: $primary
 
 h1, h2, .title, .subtitle
-    color: $h-color
+    color: $h-color    
 
 .title
-    font-weight: 400
+    font-weight: $title-weight
 
 ul
     padding: 0
@@ -49,7 +52,7 @@ img
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4)
 
 hr
-    background-color: #dbdbdb
+    background-color: $secondary
     height: 1px
 
 .container
@@ -77,6 +80,11 @@ pre
 
 .thumbnail
     border: none
+
+.card-thumbnail
+  width: 100%
+  height: 100%
+  object-fit: cover
 
 .bold-title
     font-size: 6rem
@@ -116,7 +124,7 @@ pre
     margin: 0 10px
 
 .fab
-    font-size: 21px
+    font-size: 1.3rem
 
 .blog-share
     .icon
@@ -127,13 +135,14 @@ pre
 
 .navbar-burger
     margin-right: auto
+    color: $primary
 
 .navbar-burger:hover
     background-color: $navbar-background-color
 
 .navbar-item
     text-transform: uppercase
-    font-size: 14px
+    font-size: 0.875rem
 
 .owl-nav
     height: 50px

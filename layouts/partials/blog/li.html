@@ -11,7 +11,7 @@
         <div class="{{ .Site.Params.postStyle | default "list" }}In">
           <a class="{{ .Site.Params.postStyle | default "list" }}Link" href="{{ .Permalink }}">
             {{ with .Params.image }}<img src="{{ . }}"> {{ end }}
-            <h1>{{ .Title }}</h1>
+            <h1>{{ .Title | markdownify }}</h1>
             {{ if .Params.date }} - <p>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</p>{{ end }}
           </a>
         </div>

@@ -6,7 +6,7 @@
 
 Introduction is a minimalist, highly-versatile theme for Hugo. It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
-![Main page screenshot](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/screenshot.png)
+![Device mockups](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/mockup.png)
 
 Features:
 
@@ -15,7 +15,8 @@ Features:
 - Projects and Blog sections
 - Page load fade-in CSS effect and smooth scrolling to anchor links
 - Straightforward customization via `config.toml`
-- Styled Markdown throughout with syntax highlighting
+- Styled Markdown throughout, including post titles
+- Syntax highlighting
 
 Developer-friendly:
 
@@ -26,10 +27,13 @@ Developer-friendly:
 
 - Requires extended version of [Hugo](https://gohugo.io/getting-started/installing/) (latest version recommended)
 
-To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You can install them using `npm`:
+To make changes to the theme CSS, extended Hugo's [PostCSS](https://gohugo.io/hugo-pipes/postcss/) requires JavaScript packages to compile the styles. You'll need `postcss`, `postcss-cli`, and `autoprefixer` which you can install using `npm`.
 
-- [postcss-cli](https://github.com/postcss/postcss-cli):`npm install -g postcss-cli`
-- [autoprefixer](https://github.com/postcss/autoprefixer): `npm install -g autoprefixer`
+To temporarily address [this issue](https://github.com/postcss/autoprefixer/issues/1358), please pin `autoprefixer@9.8.6`.
+
+```sh
+npm i -g postcss postcss-cli autoprefixer@9.8.6
+```
 
 [Learn how to install and use npm here](https://www.npmjs.com/get-npm).
 
@@ -37,9 +41,16 @@ Note: If you are using [Hugo as a snap app](https://snapcraft.io/hugo), the abov
 
 ```sh
 cd exampleSite/
-npm install postcss-cli
-npm install autoprefixer
+npm i -g postcss postcss-cli autoprefixer
 ```
+
+If you see an error message like:
+
+```text
+Error: Error building site: POSTCSS: failed to transform "css/main.css" (text/css): resource "sass/sass/style..." not found in file cache
+```
+
+You may need to install these dependencies globally. See [issue #210](https://github.com/victoriadrake/hugo-theme-introduction/issues/210#issuecomment-645661326) for more information.
 
 ## Get the theme
 
@@ -175,7 +186,11 @@ Set `disqusshortname` in `config.toml` to activate Hugo's [internal Disqus templ
 
 ## Custom CSS
 
-You can add custom CSS files by placing them under `assets/` and adding the path to the file to `customCSS` in `config.toml`.
+You can add custom CSS files by placing them under `assets/` and adding the paths to the files to the `customCSS` list in `config.toml`.
+
+## Custom JavaScript
+
+You can add custom JavaScript files by placing them under `assets/` and adding the paths to the files to the `customJS` list in `config.toml`.
 
 ## Issues
 
