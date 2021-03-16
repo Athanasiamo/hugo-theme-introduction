@@ -13,10 +13,10 @@
                 </a>
             </h3>
 
-            {{ if .Params.featured_image }}
+            {{ if .Params.image }}
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
-                        {{ with .Params.featured_image }}<img src="{{ . }}">{{ end }}
+                        {{ with .Params.image }}<img src="{{ . }}">{{ end }}
                     </div>
                     <div class="markdown column">
                         {{ .Summary }}

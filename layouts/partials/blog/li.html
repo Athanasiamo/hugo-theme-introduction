@@ -4,18 +4,22 @@
             <span><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></span>{{ if .Params.date }} - <span>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</span>{{ end }}
         </li>
     {{ end }}
-{{ else}}
-<ul id="postGrid">
-{{ range .Pages.ByPublishDate.Reverse }}
-    <li class="{{ .Site.Params.postStyle | default "list" }}">
-        <div class="{{ .Site.Params.postStyle | default "list" }}In">
-          <a class="{{ .Site.Params.postStyle | default "list" }}Link" href="{{ .Permalink }}">
-            {{ with .Params.image }}<img src="{{ . }}"> {{ end }}
-            <h1>{{ .Title | markdownify }}</h1>
-            {{ if .Params.date }} - <p>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</p>{{ end }}
-          </a>
-        </div>
-    </li>
+{{ else }}
+    <ul id="postGrid">
+    {{ range .Pages.ByPublishDate.Reverse }}
+        <li class="{{ .Site.Params.postStyle | default "square" }}">
+            <div class="{{ .Site.Params.postStyle | default "square" }}In">
+              <a class="{{ .Site.Params.postStyle | default "square" }}Link" href="{{ .Permalink }}">
+                {{ if isset .Params "image" }}
+                    <img src = '{{ printf "%s/%s" .Permalink .Params.image }}' class = 'post_thumbnail'>
+
+
 {{ end }}
-</ul>
+                <h1>{{ .Title }}</h1>
+                {{ if .Params.date }} - <p>{{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006") }}</p>{{ end }}
+              </a>
+            </div>
+        </li>
+    {{ end }}
+    </ul>
 {{end}}

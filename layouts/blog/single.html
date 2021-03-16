@@ -58,6 +58,32 @@
 <!-- Begin blog post content -->
 <div class="container markdown top-pad">
     {{ .Content }}
+    
+    {{ $cit := .Params.citation | default true}}
+    {{ if $cit }}
+    <h3>Citation</h3>
+    For attribution, please cite this work as
+    <div class="highlight" style="border: 1px solid grey">
+      <p style="padding: 1em;font-family: 'monospace">
+        {{ .Params.author }} ({{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006")}}) {{ .Params.title }}. Retrieved from {{ .Permalink }}
+      </p>
+    </div>
+  
+    <br>
+    <b>BibTeX citation</b>
+      
+    <div class="highlight" style="border: 1px solid grey">
+      <p style="padding: 1em;font-family: 'monospace">
+        @misc{ {{ .Params.slug }},<br>
+        &emsp;author = { {{ .Params.author }} },<br>
+        &emsp;title = { {{ .Title }} },<br>
+        &emsp;url = { {{ .Permalink }} },<br>
+        &emsp;year = { {{ .Date.Format "2006" }} }<br>
+        }
+      </p>
+    </div>
+  {{ end }}
+
 </div>
 <!-- End blog post content -->
 {{ partial "comments.html" . }}

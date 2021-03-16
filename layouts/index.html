@@ -21,29 +21,25 @@
         {{ $home := . }}
         {{ $pages := .Resources.ByType "page" }}
 
-        {{ with .Site.GetPage "/blog" }}
-            {{ $pages = $pages | append . }}
-        {{ end }}
-
-        {{ with .Site.GetPage "/projects" }}
+        {{ range .Site.Sections }}
             {{ $pages = $pages | append . }}
         {{ end }}
 
         {{ range sort $pages "Params.weight" }}
         {{ if ne .Name "contact.md" }}
-        {{ if .File }}
-        {{ if eq (os.Stat .File.Dir).Name "projects" }}
+        {{ if eq .Params.type "projects" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
-        {{ else if eq (os.Stat .File.Dir).Name "blog" }}
+        {{ else if eq .Params.type "blog" }}
             <!-- Let`s show some blog posts -->
             {{ partial "home/blog.html" . }}
-        {{ else }}
-
+        {{ else if or (eq .Params.type "home") (eq .Params.type "about") }}
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
+                <a href="{{ .URL | relLangURL }}">
+                    <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
+                </a>
                 {{ if .Params.Image }}
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
@@ -54,12 +50,19 @@
                         {{ end }}
                     </div>
                     <div class="markdown column">
-                        {{ .Content }}
+                        {{ .Summary }}
+                        {{ if .Truncated }}
+                        <a href="{{ .URL | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
+                        {{ end }}
                     </div>
                 </div>
                 {{ else }}
                 <div class="markdown has-text-centered">
                     {{ .Content }}
+                    
+                    {{ if .Truncated }}
+                    <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                    {{ end }}
                 </div> 
                 {{ end }}
             </div>
@@ -69,7 +72,6 @@
         <div class="container">
             <hr>
         </div>
-        {{ end }}
         {{ end }}
         {{ end }}
         {{ end }}

@@ -21,7 +21,9 @@
 </div>
 <div class="section" id="all-posts">
     <div class="container">
-        <h2 class="title is-2 has-text-centered top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+            <a href="{{ .URL | relLangURL }}">
+                <h2 class="title is-2 has-text-centered">{{ i18n "index_blog_allPosts" . }}</h2>
+            </a>
             {{ partialCached "blog/li.html" . }}
         {{ else }}
         <div class="container has-text-centered top-pad">
