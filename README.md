@@ -1,12 +1,22 @@
 # Introduction theme for Hugo
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/51d09485-c9d1-4a88-90ba-894f09e5a29d/deploy-status)](https://app.netlify.com/sites/hugo-introduction/deploys)
-![Test Hugo versions](https://github.com/victoriadrake/hugo-theme-introduction/workflows/test-versions/badge.svg)
-![Latest Release](https://img.shields.io/github/tag/victoriadrake/hugo-theme-introduction.svg)
+![Test Hugo versions](https://github.com/Athanasiamo/hugo-chairome/workflows/test-versions/badge.svg)
+![Latest Release](https://img.shields.io/github/tag/Athanasiamo/hugo-chairome.svg)
 
-Introduction is a minimalist, highly-versatile theme for Hugo. It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
+Chairome is a minimalist, highly-versatile theme for Hugo adapted from [@victoriadrake](https://github.com/victoriadrake/)'s [hugo-theme-introduction](https://github.com/victoriadrake/hugo-theme-introduction/). It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
-![Device mockups](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/images/mockup.png)
+![Device mockups](https://github.com/Athanasiamo/hugo-chairome/blob/master/images/mockup.png)
+
+
+Extra Chairome features:
+
+- Logo in the hero  
+- Blog posts can be rendered as grid structures of squares, circles or hexagons, with a features image  
+- Multiple projects/blog sections given the section type is set as `projects` or `blog` in the front matter yaml 
+- Any section type that is `home`, `projects` or `blog` will be rendered on the landing page  
+
+Additionally, there are the features of the theme that come from the original Introduction theme.
 
 Features:
 
@@ -22,6 +32,7 @@ Developer-friendly:
 
 - Sass files included with instant compiling to CSS thanks to [Hugo Pipes](https://gohugo.io/hugo-pipes/postcss/) and [PostCSS](https://gohugo.io/hugo-pipes/postcss/)
 - Thoughtful use of Sass variables makes creating new colour schemes easy
+ 
 
 ## Getting started
 
@@ -57,13 +68,13 @@ You may need to install these dependencies globally. See [issue #210](https://gi
 Run from the root of your Hugo site:
 
 ```sh
-git clone https://github.com/victoriadrake/hugo-theme-introduction.git themes/introduction
+git clone https://github.com/Athanasiamo/hugo-chairome.git themes/chairome
 ```
 
 Alternatively, you can include this repository as a [git submodule](https://git-scm.com/docs/gitsubmodules). This makes it easier to update this theme if you have your Hugo site in git as well:
 
 ```sh
-git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git themes/introduction
+git submodule add https://github.com/Athanasiamo/hugo-chairome.git themes/chairome
 ```
 
 ## Preview the theme
@@ -71,7 +82,7 @@ git submodule add https://github.com/victoriadrake/hugo-theme-introduction.git t
 Introduction ships with an fully configured example site. For a quick preview:
 
 ```sh
-cd themes/introduction/exampleSite/
+cd themes/chairome/exampleSite/
 hugo serve  --themesDir ../..
 ```
 
@@ -166,7 +177,7 @@ From `exampleSite/`, copy `config.toml` to the root folder of your Hugo site and
 
 ## Multilingual
 
-Introduction currently ships with support for [many languages](https://github.com/victoriadrake/hugo-theme-introduction/tree/master/i18n). Contributions for other language translations are welcome.
+Introduction currently ships with support for [many languages](https://github.com/Athanasiamo/hugo-chairome/tree/master/i18n). Contributions for other language translations are welcome.
 
 To create a new language translation, add the `.toml` file to the `i18n/` folder. See the existing files for the necessary fields.
 
@@ -194,16 +205,16 @@ You can add custom JavaScript files by placing them under `assets/` and adding t
 
 ## Issues
 
-If you have a question or get stuck, please [open an issue](https://github.com/victoriadrake/hugo-theme-introduction/issues) for help and to help those who come after you. The more information you can provide, the better!
+If you have a question or get stuck, please [open an issue](https://github.com/Athanasiamo/hugo-chairome/issues) for help and to help those who come after you. The more information you can provide, the better!
 
 ## Contributing
 
 Contributions for new translations, fixes, and features are welcome.
 
-This theme would not be nearly as awesome without its amazing community of open source [contributors](https://github.com/victoriadrake/hugo-theme-introduction/graphs/contributors). Thank you so much! 🖤
+This theme would not be nearly as awesome without its amazing community of open source [contributors](https://github.com/Athanasiamo/hugo-chairome/graphs/contributors). Thank you so much! 🖤
 
 ## License
 
 Copyright (C) 2017-2020 [Victoria Drake](https://victoria.dev/)
 
-Licensed under [Apache-2.0](https://github.com/victoriadrake/hugo-theme-introduction/blob/master/LICENSE)
+Licensed under [Apache-2.0](https://github.com/Athanasiamo/hugo-chairome/blob/master/LICENSE)
