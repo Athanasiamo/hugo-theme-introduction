@@ -6,7 +6,7 @@
 
 Chairome is a minimalist, highly-versatile theme for Hugo adapted from [@victoriadrake](https://github.com/victoriadrake/)'s [hugo-theme-introduction](https://github.com/victoriadrake/hugo-theme-introduction/). It can be configured as a single page, or as a full-featured site with multiple sections. It is multilingual, responsive, and includes a light and dark theme.
 
-![Device mockups](https://github.com/Athanasiamo/hugo-chairome/blob/master/images/mockup.png)
+#![Device mockups](https://github.com/Athanasiamo/hugo-chairome/blob/master/images/mockup.png)
 
 
 Extra Chairome features:
