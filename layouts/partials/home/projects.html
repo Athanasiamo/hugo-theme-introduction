@@ -1,7 +1,7 @@
 <div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
-        <a href="{{ .URL | relLangURL }}">
+        <a href="{{ .Permalink | relLangURL }}">
             <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
         </a>
         <div class="section">

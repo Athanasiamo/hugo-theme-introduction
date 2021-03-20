@@ -37,7 +37,7 @@
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <a href="{{ .URL | relLangURL }}">
+                <a href="{{ .Permalink | relLangURL }}">
                     <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
                 </a>
                 {{ if .Params.Image }}
@@ -52,7 +52,7 @@
                     <div class="markdown column">
                         {{ .Summary }}
                         {{ if .Truncated }}
-                        <a href="{{ .URL | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
+                        <a href="{{ .Permalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
                         {{ end }}
                     </div>
                 </div>
