@@ -61,7 +61,7 @@
                     {{ .Content }}
                     
                     {{ if .Truncated }}
-                    <a href="{{ .Permalink }}">{{ i18n "index_blog_readMore" . }}</a>
+                    <a href="{{ .Permalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
                     {{ end }}
                 </div> 
                 {{ end }}
