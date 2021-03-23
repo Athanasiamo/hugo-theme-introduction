@@ -1,5 +1,5 @@
 baseURL                          = "http://example.com/"   # Your domain name. Must end with "/"
-theme                            = "chairome"
+theme                            = "hugo-chairome"
 DefaultContentLanguage           = "en"                    # Default language for multilingual sites
 # disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
 # googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
@@ -9,7 +9,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
     favicon                      = "/img/fav.ico"          # Path to favicon file
     logo                         = "/img/logo-light.png"   # logo hero
     logo_size                    = "10%"                   # logo size
-    postStyle                    = "square"                # Blog list/grid, either list, square, circle or hex
+    postStyle                    = "square"                # Blog list/grid, either list, square, circle, or hex
     showRSSButton                = false                   # Show rss button in navigation
     fadeIn                       = true                    # Turn on/off the fade-in effect
     fadeInIndex                  = false                   # Turn on/off the fade-in effect on the index page even if fade-in was otherwise turned off
@@ -22,7 +22,7 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [params.home]
         introHeight              = "fullheight"            # Input either "medium" or "large" or "fullheight"
         showLatest               = true                    # Show latest blog post summary
-        showAllPosts             = false                   # Set true to list all posts on home page, or set false to link to separate blog list page
+        showAllPosts             = true                   # Set true to list all posts on home page, or set false to link to separate blog list page
         numberOfProjectsToShow   = 3                       # Maximum number of projects to show on home page. Unset or comment out to show all projects
         localTime                = true                    # Show your current local time in contact section
         timeZone                 = "America/Los_Angeles"   # Your timezone as in the TZ* column of this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -36,6 +36,9 @@ DefaultContentLanguage           = "en"                    # Default language fo
         facebook                 = true
         googlePlus               = true
         pinterest                = true
+        
+    [params.blog]
+        citation = true
 
     # Social icons appear in introduction and contact section. Add as many more as you like.
     # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
@@ -100,7 +103,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [languages.en]
         languageName     = "English"
         languageCode     = "en-us"
-        contentDir       = "content/en"
         weight           = 0
         title            = "Introduction"
         [languages.en.params]
@@ -110,7 +112,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [languages.es]
         languageName     = "Español"
         languageCode     = "es"
-        contentDir       = "content/es"
         weight           = 1
         title            = "Introducción"
         [languages.es.params]
@@ -120,7 +121,6 @@ DefaultContentLanguage           = "en"                    # Default language fo
     [languages.de]
         languageName     = "Deutsch"
         languageCode     = "de"
-        contentDir       = "content/de"
         weight           = 2
         title            = "Vorstellung"
         [languages.de.params]
