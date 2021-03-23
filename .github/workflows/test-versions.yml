@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+          
       - name: Install tools
         run: |
           sudo apt install curl jq
@@ -36,7 +37,7 @@ jobs:
       - name: Build with Hugo ${{ matrix.hugo }}
         run: |
           cd exampleSite
-          HUGO_THEME="hugo-theme-introduction" hugo --themesDir ../.. -v
+          HUGO_THEME="theme-chairome" hugo --themesDir ../.. -v
 
       - name: Test HTML from Hugo ${{ matrix.hugo }}
         run: docker run -v ${GITHUB_WORKSPACE}/public/:/mnt 18fgsa/html-proofer mnt --disable-external
