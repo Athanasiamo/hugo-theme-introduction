@@ -36,8 +36,9 @@ jobs:
 
       - name: Build with Hugo ${{ matrix.hugo }}
         run: |
+          ls
           cd exampleSite
-          HUGO_THEME="theme-chairome" hugo --themesDir ../.. -v
+          hugo --themesDir ../.. -v
 
       - name: Test HTML from Hugo ${{ matrix.hugo }}
         run: docker run -v ${GITHUB_WORKSPACE}/public/:/mnt 18fgsa/html-proofer mnt --disable-external
