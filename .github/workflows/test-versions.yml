@@ -36,7 +36,6 @@ jobs:
 
       - name: Build with Hugo ${{ matrix.hugo }}
         run: |
-          ls
           cd exampleSite
           hugo --themesDir ../.. -v
 
