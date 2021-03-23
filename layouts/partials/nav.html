@@ -60,7 +60,7 @@
                 {{ else }}
                     {{ $pageIsInProjects := eq $.Page.Section "projects"}}
                     {{ if not (and $pageIsInProjects (eq $.Page.Kind "section")) }}
-                      <a class="navbar-item" href="{{ .Permalink | relLangURL }}">
+                      <a class="navbar-item" href="{{ .RelPermalink | relLangURL }}">
                       {{ if $pageIsInProjects }}
                           {{ i18n "nav_backToSection" . }}
                       {{ else }}
@@ -78,17 +78,17 @@
                 {{ else }}
                 {{ $pageIsInBlog := eq $.Page.Section "blog"}}
                 {{ if not (and $pageIsInBlog (eq $.Page.Kind "section")) }}
-                  <a class="navbar-item" href="{{ .Permalink | relLangURL }}">
+                  <a class="navbar-item" href="{{ .RelPermalink | relLangURL }}">
                   {{ if $pageIsInBlog }}
-                  {{ i18n "nav_backToSection" . }}
+                    {{ i18n "nav_backToSection" . }}
                   {{ else }}
-                  {{ .Title | singularize}}
+                    {{ .Title | singularize}}
                   {{ end }}
                   </a>
                 {{ end }}
                 {{ end }}
             {{ else }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title | markdownify }}</a>
+            <a class="navbar-item" href="{{printf "%s#%s" ("/" | relLangURL) .File.TranslationBaseName }}">{{ .Title | markdownify }}</a>
             {{ end }}
             {{ end }}
             {{ end }}
@@ -96,13 +96,13 @@
 
             {{ with .Site.GetPage "/home" }}
             {{ with .Resources.GetMatch "contact.md" }}
-            <a class="navbar-item" href="{{ if $isHome }}#{{ .File.TranslationBaseName }}{{ else }}{{ printf "#%s" (.File.TranslationBaseName | urlize) | relLangURL }}{{ end }}">{{ .Title | markdownify }}</a>
+            <a class="navbar-item" href="{{printf "%s#%s" ("/" | relLangURL) .File.TranslationBaseName }}">{{ .Title | markdownify }}</a>
             {{ end }}
             {{ end }}
 
             {{ range $.Site.Home.AllTranslations.ByWeight }}
             {{ if ne .Language.LanguageName $.Language.LanguageName }}
-            <a class="navbar-item" href="{{ .Permalink | relLangURL }}">{{ .Language.LanguageName }}</a>
+            <a class="navbar-item" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
             {{ end }}
             {{ end }}
 

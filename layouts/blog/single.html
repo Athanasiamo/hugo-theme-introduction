@@ -59,28 +59,31 @@
 <div class="container markdown top-pad">
     {{ .Content }}
     
-    {{ $cit := .Params.citation | default true}}
-    {{ if $cit }}
+    {{ if (.Site.Params.blog.citation | default true) }}
     <h3>Citation</h3>
-    For attribution, please cite this work as
-    <div class="highlight" style="border: 1px solid grey">
-      <p style="padding: 1em;font-family: 'monospace">
-        {{ .Params.author }} ({{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006")}}) {{ .Params.title }}. Retrieved from {{ .Permalink }}
-      </p>
-    </div>
-  
-    <br>
-    <b>BibTeX citation</b>
-      
-    <div class="highlight" style="border: 1px solid grey">
-      <p style="padding: 1em;font-family: 'monospace">
-        @misc{ {{ .Params.slug }},<br>
-        &emsp;author = { {{ .Params.author }} },<br>
-        &emsp;title = { {{ .Title }} },<br>
-        &emsp;url = { {{ .Permalink }} },<br>
-        &emsp;year = { {{ .Date.Format "2006" }} }<br>
-        }
-      </p>
+    <div class="columns">
+      <div class="column is-half">
+        For attribution, please cite this work as
+        <div class="highlight" style="border: 1px solid grey">
+          <p style="padding: 1em;font-family: 'monospace">
+            {{ .Params.author }} ({{ .Date.Format (.Site.Params.dateFormat | default "Jan 02, 2006")}}) {{ .Params.title }}. Retrieved from {{ .Permalink }}
+          </p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <b>BibTeX citation</b>
+        <div class="highlight" style="border: 1px solid grey">
+          <p style="padding: 1em;font-family: 'monospace">
+            @misc{ {{ printf "%s-%s" (.Date.Format "2006") (.Title | urlize) }},<br>
+            &emsp;author = { {{ .Params.author }} },<br>
+            &emsp;title = { {{ .Title }} },<br>
+            &emsp;url = { {{ .Permalink }} },<br>
+            &emsp;year = { {{ .Date.Format "2006" }} }<br>
+            &emsp;updated = { {{ .Lastmod.Format .Site.Params.dateFormat }} }<br> 
+            }
+          </p>
+        </div>
+      </div>
     </div>
   {{ end }}
 

@@ -1,8 +1,8 @@
 <div class="section" id="{{ .Title | urlize }}">
     <!-- Begin Projects container -->
     <div class="container">
-        <a href="{{ .Permalink | relLangURL }}">
-            <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}{{ .Permalink | relLangURL }}</h2>
+        <a href="{{ .Permalink | absLangURL }}">
+            <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
         </a>
         <div class="section">
             <div class="columns is-multiline">

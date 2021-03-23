@@ -37,22 +37,18 @@
         <!-- Range through all sections in /home execept contact.md -->
         <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <a href="{{ .Permalink | relLangURL }}">
+                <a href="{{ .RelPermalink | relLangURL }}">
                     <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
                 </a>
                 {{ if .Params.Image }}
                 <div class="columns">
                     <div class="column is-one-third has-text-centered">
-                        {{ with $home.Resources.GetMatch .Params.Image }}
-                        {{ with .Fill "320x320 center" }}
-                        <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
-                        {{ end }}
-                        {{ end }}
+                        <img class="img-responsive avatar" src="{{ printf "%s%s" .RelPermalink .Params.Image }}" alt="{{ .Name }}">
                     </div>
                     <div class="markdown column">
                         {{ .Summary }}
                         {{ if .Truncated }}
-                        <a href="{{ .Permalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
+                        <a href="{{ .RelPermalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
                         {{ end }}
                     </div>
                 </div>
@@ -61,7 +57,7 @@
                     {{ .Content }}
                     
                     {{ if .Truncated }}
-                    <a href="{{ .Permalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
+                    <a href="{{ .RelPermalink | relLangURL }}">{{ i18n "index_blog_readMore" . }}</a>
                     {{ end }}
                 </div> 
                 {{ end }}
