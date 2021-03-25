@@ -17,7 +17,7 @@
             <div class="container hero {{ if .Site.Params.fadeIn | default true }} fade-in one {{ end }}" style="background-image: url({{ .Site.Params.logo }});">
                 
                 {{ block "title" . }}
-                <h1 class="bold-title is-1" style="text-align: center;"> {{ .Title }}</h1>
+                <h1 class="bold-title is-1" style="text-align: center;"> {{ .Title | markdownify }}</h1>
                 {{ end }}
             </div>
             <!-- End Title -->
